@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TEFA Pengolahan Produk Kopi</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    :root {
+      --primary-color: #ff7b00;
+      --secondary-color: #ffb347;
+      --accent-color: #603813;
+      --bg-light: #fde9c6;
+      --dark-color: #000; /* Define your dark color */
+      --light-color: #fff; /* Define your light color */
+    }
+  body {
+      background-color: var(--dark-color);
+      color: var(--light-color);
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+  }
+    /* Navigation */
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: var(--light-color) !important;
+    }
+
+    .nav-link {
+      color: var(--light-color) !important;
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--primary-color) !important;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 5rem 2rem;
+      text-align: center;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.postimg.cc/MTQ6MD2Z/pengeringan-biji-kopi.jpg') center/cover no-repeat;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      color: var(--light-color);
+    }
+
+    .hero-section p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    /* About Sections */
+    .section {
+      padding: 4rem 2rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section-content {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--primary-color);
+    }
+
+    .section-subtitle {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var(--light-color);
+    }
+
+    .vision-mission-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+
+    .vision-mission-list li {
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 4px;
+      transition: transform 0.3s ease;
+    }
+
+    .vision-mission-list li:hover {
+      transform: translateX(5px);
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .history-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .advantages-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* Navigation Tabs for About Sections */
+    .about-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .about-nav-item {
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    .about-nav-item:hover, .about-nav-item.active {
+      background-color: var(--primary-color);
+      color: var(--dark-color);
+    }
+
+    /* Gallery Section */
+    .gallery-section {
+      padding: 4rem 2rem;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .gallery-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--primary-color);
+    }
+
+    .gallery-description {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+    }
+
+    .gallery-card {
+      background-color: var(--bg-light);
+      color: var(--dark-color);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--dark-color);
+    }
+
+    .gallery-card p {
+      font-size: 0.95rem;
+      margin: 0;
+      color: var(--dark-color);
+    }
+
+    /* Services Section */
+    .services-section {
+      padding: 4rem 2rem;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .services-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--primary-color);
+    }
+
+    .services-description {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+    }
+
+    .service-card {
+      background-color: var(--bg-light);
+      color: var(--dark-color);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--dark-color);
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      margin: 0 0 1rem;
+      color: var(--dark-color);
+    }
+
+    .btn-more {
+      background-color: var(--primary-color);
+      color: var(--dark-color);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+    }
+
+    .btn-more:hover {
+      background-color: var(--secondary-color);
+      transform: scale(1.05);
+    }
+
+    /* Products Section */
+    .products-section {
+      padding: 4rem 2rem;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .products-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var(--primary-color);
+    }
+
+    .products-description {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+    }
+
+    .product-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .product-box {
+      width: 220px;
+      height: 320px;
+      background-color: #333;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .product-box:hover {
+      transform: translateY(-10px);
+    }
+
+    .product-box img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    .product-info {
+      padding: 1rem;
+      background-color: #222;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+
+    .product-info h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--light-color);
+    }
+
+    /* Product Detail Section */
+    .liberika-section {
+      padding: 4rem 2rem;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .liberika-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--primary-color);
+    }
+
+    .liberika-layout {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 0 auto;
+      gap: 2rem;
+    }
+
+    .text-column {
+      flex: 1 0 245px;
+      text-align: center;
+    }
+
+    .text-column h3 {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .text-column p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .center-box {
+      width: 250px;
+      height: 350px;
+      background-color: #333;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .center-box:hover {
+      transform: scale(1.05);
+    }
+
+    .center-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: var(--dark-color);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .contact-btn:hover {
+      background-color: var(--secondary-color);
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--accent-color);
+      color: var(--light-color);
+      padding: 3rem 2rem 1rem;
+      position: relative;
+    }
+
+    .footer-top {
+      height: 8px;
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .footer-column {
+      flex: 1 1 200px;
+    }
+
+    .footer-column h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      color: var(--light-color);
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-column ul li a {
+      color: var(--light-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      background-color: #784227;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .footer-bottom img {
+      height: 40px;
+      margin-left: 10px;
+    }
+
+    .footer-bottom span {
+      font-size: 0.9rem;
+      color: #fff;
+      opacity: 0.9;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 1s ease-out;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .gallery-card, .service-card {
+        padding: 1rem;
+      }
+
+      .gallery-card img, .service-card img {
+        height: 150px;
+      }
+
+      .product-box {
+        width: 100%;
+        max-width: 250px;
+      }
+
+      .liberika-layout {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .text-column {
+        text-align: center;
+      }
+
+      .center-box {
+        width: 100%;
+        max-width: 250px;
+        height: 300px;
+      }
+
+      .footer-column {
+        flex: 1 1 100%;
+        margin-bottom: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#top">TEFA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#top">Beranda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tentangkami">Tentang Kami</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#galeri">Galeri</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#layanan">Layanan</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#produk">Produk</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="top" class="hero-section">
+    <div class="container">
+      <h1 class="animate-fade-in-up">TEFA<br>Pengolahan<br>Produk Kopi</h1>
+      <p class="animate-fade-in-up">Pengolahan Produk Kopi merupakan sarana pembelajaran berbasis produksi yang dirancang untuk menghubungkan teori dengan praktik industri. Melalui program ini, peserta didik dibimbing dalam proses pengolahan kopi mulai dari pascapanen, penyangraian, penggilingan, hingga pengemasan sesuai standar mutu.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="tentangkami" class="section">
+    <div class="section-content">
+      <h2 class="section-title animate-fade-in-up">VISI & MISI</h2>
+      
+      <div class="about-nav">
+        <div class="about-nav-item active" data-target="visi-misi">VISI & MISI</div>
+        <div class="about-nav-item" data-target="sejarah">SEJARAH</div>
+        <div class="about-nav-item" data-target="keunggulan">KEUNGGULAN</div>
+      </div>
+
+      <div id="visi-misi-content" class="content-block animate-fade-in-up">
+        <h3 class="section-subtitle">VISI</h3>
+        <p class="text-center">Menjadi produsen olahan kopi yang terkemuka di Indonesia pada tahun 2028</p>
+        
+        <h3 class="section-subtitle">MISI</h3>
+        <ul class="vision-mission-list">
+          <li>Menerapkan Good Manufacturing Practices (GMP) dan keamanan pangan</li>
+          <li>Mengembangkan inovasi produk kopi berkualitas tinggi</li>
+          <li>Meningkatkan keterampilan peserta didik melalui praktik langsung</li>
+          <li>Mendorong kemitraan dengan industri kopi lokal</li>
+          <li>Menjalin dan memperluas mitra usaha yang strategis</li>
+          <li>Meningkatkan mutu dan layanan perusahaan secara kontinu</li>
+        </ul>
+      </div>
+
+      <div id="sejarah-content" class="content-block animate-fade-in-up" style="display: none;">
+        <h3 class="section-subtitle">SEJARAH</h3>
+        <p class="history-text">Perusahaan ini telah berdiri pada tahun 2018, namun perusahaan ini belum berada di bawah naungan teaching factory (TEFA), sebelum menjadi tefa pengolahan kopi, perusahaan ini hanya menjadi wadah bagi mahasiswa untuk melakukan praktek mengolah kopi mentah menjadi kopi bubuk, namun karena hasil produk bubuk kopinya berlimpah, akhirnya pada tahun 2022 oleh perintah direktur maka didirikanlah TEFA pengolahan kopi untuk menjadi wadah pemasaran dalam memasarkan hasil praktek mahasiswa di pengolahan kopi.</p>
+      </div>
+
+      <div id="keunggulan-content" class="content-block animate-fade-in-up" style="display: none;">
+        <h3 class="section-subtitle">KEUNGGULAN</h3>
+        <p class="advantages-text">Bubuk kopi instan yang tidak menggunakan essence menjadikan suatu produk kopi yang memiliki rasa kopi yang lebih alami. Kemasannya rapi dan higienis, mudah disimpan. Kualitas bubuknya halus dan tidak ada ampas berlebihan. Kopinya terasa asli tanpa campuran, kualitas kopinya bagus, rasanya khas. Sayangnya, saya baru tahu produk ini dari teman. Mungkin bisa ditingkatkan dengan promosi online dan informasi profil brand supaya lebih dikenal luas, serta memperluas distribusi ke marketplace besar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="galeri" class="gallery-section">
+    <div class="container">
+      <h2 class="gallery-title animate-fade-in-up">GALERI</h2>
+      <p class="gallery-description animate-fade-in-up">Tefa Pengolahan Produk Kopi juga menyediakan beberapa layanan untuk menunjang keahlian serta keterampilan mahasiswa</p>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="gallery-card animate-fade-in-up">
+            <img src="https://i.postimg.cc/MTQ6MD2Z/pengeringan-biji-kopi.jpg" alt="Pengeringan Biji Kopi" />
+            <div class="content">
+              <h3>PENGERINGAN BIJI KOPI</h3>
+              <p>Pengeringan biji kopi bertujuan menurunkan kadar air biji kopi hingga batas aman agar tahan lama dan tidak berjamur, biasanya hingga 12,5%.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="gallery-card animate-fade-in-up" style="animation-delay: 0.2s;">
+            <img src="https://i.postimg.cc/x89nDHgP/roasting-biji-kopi.jpg" alt="Roasting Biji Kopi" />
+            <div class="content">
+              <h3>ROASTING BIJI KOPI</h3>
+              <p>Tujuan roasting kopi adalah untuk mengubah biji kopi hijau menjadi biji kopi siap seduh dengan rasa, aroma, warna, dan tekstur yang khas.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="gallery-card animate-fade-in-up" style="animation-delay: 0.4s;">
+            <img src="https://i.postimg.cc/T36kL0jM/hasil-produk.jpg" alt="Hasil Produk" />
+            <div class="content">
+              <h3>HASIL PRODUK</h3>
+              <p>Minuman beraroma khas dengan rasa yang nikmat, dapat memberikan sensasi hangat, segar, dan menenangkan sesuai tingkat sangrai dan cara penyajiannya.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="layanan" class="services-section">
+    <div class="container" id="layanan">
+      <h2 class="services-title animate-fade-in-up">LAYANAN</h2>
+      <p class="services-description animate-fade-in-up">Tefa Pengolahan Produk Kopi juga menyediakan beberapa layanan untuk menunjang keahlian serta keterampilan mahasiswa Politeknik Negeri Jember</p>
+      
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="service-card animate-fade-in-up" id="Magang">
+            <img src="magang.jpeg" alt="Magang" />
+            <div class="content">
+              <h4>MAGANG</h4>
+              <p>Tefa pengolahan produk kopi menyediakan layanan Magang bagi para mahasiswa Politeknik Negeri Jember yang sudah mencukupi ketentuan magang</p>
+              <a href="Magang.html" class="btn-more">MORE</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="service-card animate-fade-in-up" style="animation-delay: 0.2s;">
+            <img src="pelatihan.jpg" alt="Pelatihan" />
+            <div class="content">
+              <h4>PELATIHAN</h4>
+              <p>Tefa pengolahan produk kopi menyediakan layanan pelatihan bagi para mahasiswa Politeknik Negeri Jember yang ingin mengasah minatnya di bidang kopi</p>
+              <a href="pelatihan.html" class="btn-more">MORE</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="service-card animate-fade-in-up" style="animation-delay: 0.4s;">
+            <img src="Kerjasama.png" alt="Kerjasama" />
+            <div class="content">
+              <h4>KERJASAMA</h4>
+              <p>Tefa pengolahan produk kopi menyediakan layanan kerjasama bagi pihak luar yang berminat menjalin kerja sama dengan Tefa Pengolahan Produk Kopi Politeknik Negeri Jember</p>
+              <a href="kerjasama.html" class="btn-more">MORE</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="service-card animate-fade-in-up" style="animation-delay: 0.6s;">
+            <img src="kunjungan industri.jpg" alt="Kunjungan Industri" />
+            <div class="content">
+              <h4>KUNJUNGAN INDUSTRI</h4>
+              <p>Tefa pengolahan produk kopi menyediakan layanan kunjungan industri yang ditujukan untuk memberikan wawasan mengenai dunia kopi</p>
+              <a href="kunjungan industri.html" class="btn-more">MORE</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="produk" class="products-section">
+    <div class="container">
+      <h2 class="products-title animate-fade-in-up">PRODUK</h2>
+      <p class="products-description animate-fade-in-up">Tefa pengolahan produk kopi mempunyai berbagai macam produk kopi andalan yaitu kopi <strong>Liberika</strong>, <strong>Arabika</strong>, dan <strong>Robusta</strong>.</p>
+      
+      <div class="product-container">
+        <div class="product-box animate-fade-in-up" data-product="arabika">
+          <img src="Gambar Arabika.jpeg" alt="Gambar Kopi Arabika">
+          <div class="product-info">
+            <h3>Arabika</h3>
+          </div>
+        </div>
+        <div class="product-box animate-fade-in-up" data-product="liberika" style="animation-delay: 0.2s;">
+          <img src="Gambar Liberika.jpeg" alt="Gambar Kopi Liberika">
+          <div class="product-info">
+            <h3>Liberika</h3>
+          </div>
+        </div>
+        <div class="product-box animate-fade-in-up" data-product="robusta" style="animation-delay: 0.4s;">
+          <img src="Gambar Robusta.jpeg" alt="Gambar Kopi Robusta">
+          <div class="product-info">
+            <h3>Robusta</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Detail Section -->
+  <section class="liberika-section">
+    <div class="container">
+      <h2 class="liberika-title animate-fade-in-up">DESKRIPSI PRODUK</h2>
+      
+      <div class="liberika-layout">
+        <!-- Left Column -->
+        <div class="text-column animate-fade-in-up">
+          <h3>DESKRIPSI</h3>
+          <p id="product-description">Kopi liberika adalah jenis kopi unik dari Afrika Barat yang dikenal karena ukuran bijinya yang besar dan rasa buah-buahan yang khas.</p>
+          
+          <h3>KOMPOSISI</h3>
+          <p id="product-composition">Menjadi produsen olahan kopi yang terkemuka di Indonesia pada tahun 2028.</p>
+          
+          <a href="https://wa.me/082135336710" class="contact-btn">📱 +62 8213 5336 710</a>
+        </div>
+        
+        <!-- Center Box -->
+        <div class="center-box animate-fade-in-up" style="animation-delay: 0.3s;">
+          <img id="product-image" src="Gambar Liberika.jpeg" alt="Gambar Produk Liberika">
+        </div>
+        
+        <!-- Right Column -->
+        <div class="text-column animate-fade-in-up" style="animation-delay: 0.6s;">
+          <h3>UKURAN KEMASAN</h3>
+          <p id="product-packaging">Ukuran kemasan kopi bubuk Liberika ini bervariasi dari 50 gram, 100 gram, hingga 250 gram.</p>
+          
+          <h3>HARGA</h3>
+          <p id="product-price">Harga mulai Rp. 15.000 - Rp. 70.000.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-top"></div>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h4>BERANDA</h4>
+        </div>
+        
+        <div class="footer-column" id="visi-misi">
+          <h4>TENTANG KAMI</h4>
+          <ul>
+            <li><a href="#tentangkami">Visi & Misi</a></li>
+            <li><a href="#sejarah">Sejarah</a></li>
+            <li><a href="#keunggulan">Keunggulan</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>GALERI</h4>
+          <ul>
+            <li>Video Pasca panen kopi</li>
+            <li>Video Proses grinding atau pembubukan kopi</li>
+            <li>Video proses roasting biji kopi</li>
+            <li>Foto Pengeringan biji kopi</li>
+            <li>Foto Roasting biji kopi</li>
+            <li>Foto Hasil produk</li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>LAYANAN</h4>
+          <ul>
+            <li><a href="#magang">Magang</a></li>
+            <li><a href="#pelatihan">Pelatihan</a></li>
+            <li><a href="#kerjasama">Kerjasama</a></li>
+            <li><a href="#kunjunganindustri">Kunjungan Industri</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>PRODUK</h4>
+          <ul>
+            <li>Kopi Robusta</li>
+            <li>Kopi Liberika</li>
+            <li>Kopi Arabika</li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>KONTAK</h4>
+          <p><a href="https://wa.me/082135336710">+62 8213 5336 710</a></p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <span>© 2025 TEFA Pengolahan Produk Kopi</span>
+        <img src="logo2.png" alt="Logo Politeknik Negeri Jember">
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    // Add Bootstrap 5 functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+              link.classList.remove('active');
+            });
+            this.classList.add('active');
+          }
+        });
+      });
+
+      // About section navigation tabs
+      const aboutNavItems = document.querySelectorAll('.about-nav-item');
+      const contentBlocks = {
+        'visi-misi': document.getElementById('visi-misi-content'),
+        'sejarah': document.getElementById('sejarah-content'),
+        'keunggulan': document.getElementById('keunggulan-content')
+      };
+
+      aboutNavItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const target = this.getAttribute('data-target');
+          
+          // Remove active class from all items
+          aboutNavItems.forEach(navItem => {
+            navItem.classList.remove('active');
+          });
+          
+          // Add active class to clicked item
+          this.classList.add('active');
+          
+          // Hide all content blocks
+          Object.keys(contentBlocks).forEach(key => {
+            contentBlocks[key].style.display = 'none';
+          });
+          
+          // Show selected content block
+          contentBlocks[target].style.display = 'block';
+        });
+      });
+
+      // Animation on scroll
+      const animateElements = document.querySelectorAll('.animate-fade-in-up');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      
+      animateElements.forEach(element => {
+        element.style.animationPlayState = 'paused';
+        observer.observe(element);
+      });
+
+      // Add hover effect to cards
+      const cards = document.querySelectorAll('.gallery-card, .service-card, .product-box');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-5px)';
+          if (this.classList.contains('product-box')) {
+            this.style.transform = 'translateY(-10px)';
+          }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+
+      // Product selection functionality
+      const productBoxes = document.querySelectorAll('.product-box');
+      const productImage = document.getElementById('product-image');
+      const productDescription = document.getElementById('product-description');
+      const productComposition = document.getElementById('product-composition');
+      const productPackaging = document.getElementById('product-packaging');
+      const productPrice = document.getElementById('product-price');
+      
+      // Define product data
+      const products = {
+        arabika: {
+          image: 'Gambar Arabika.jpeg',
+          description: 'Kopi Arabika memiliki rasa yang lebih lembut dan manis dengan aroma yang harum. Dikenal sebagai kopi premium dengan tingkat keasaman yang lebih tinggi.',
+          composition: '100% biji kopi Arabika pilihan dengan kadar air maksimal 12,5%',
+          packaging: 'Ukuran kemasan kopi bubuk Arabika ini bervariasi dari 50 gram, 100 gram, hingga 250 gram.',
+          price: 'Harga mulai Rp. 20.000 - Rp. 85.000.'
+        },
+        liberika: {
+          image: 'Gambar Liberika.jpeg',
+          description: 'Kopi liberika adalah jenis kopi unik dari Afrika Barat yang dikenal karena ukuran bijinya yang besar dan rasa buah-buahan yang khas.',
+          composition: '100% biji kopi Liberika pilihan dengan kadar air maksimal 12,5%',
+          packaging: 'Ukuran kemasan kopi bubuk Liberika ini bervariasi dari 50 gram, 100 gram, hingga 250 gram.',
+          price: 'Harga mulai Rp. 15.000 - Rp. 70.000.'
+        },
+        robusta: {
+          image: 'Gambar Robusta.jpeg',
+          description: 'Kopi Robusta memiliki rasa yang lebih kuat dan pahit dengan kandungan kafein yang lebih tinggi. Cocok untuk pencinta kopi yang kuat dan berani.',
+          composition: '100% biji kopi Robusta pilihan dengan kadar air maksimal 12,5%',
+          packaging: 'Ukuran kemasan kopi bubuk Robusta ini bervariasi dari 50 gram, 100 gram, hingga 250 gram.',
+          price: 'Harga mulai Rp. 18.000 - Rp. 75.000.'
+        }
+      };
+      
+      // Add click event listeners to product boxes
+      productBoxes.forEach(box => {
+        box.addEventListener('click', function() {
+          const productType = this.getAttribute('data-product');
+          const productData = products[productType];
+          
+          // Update main product display
+          productImage.src = productData.image;
+          productDescription.textContent = productData.description;
+          productComposition.textContent = productData.composition;
+          productPackaging.textContent = productData.packaging;
+          productPrice.textContent = productData.price;
+          
+          // Add visual feedback
+          productBoxes.forEach(b => b.classList.remove('selected'));
+          this.classList.add('selected');
+          
+          // Scroll ke product detail section
+          document.querySelector('.liberika-section').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
