@@ -56,7 +56,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const contentBlocks = {
     'visi-misi': document.getElementById('visi-misi-content'),
     'sejarah': document.getElementById('sejarah-content'),
-    'keunggulan': document.getElementById('keunggulan-content')
+    'keunggulan': document.getElementById('keunggulan-content'),
+    'struktur': document.getElementById('struktur-content'),
   };
 
   aboutNavItems.forEach(item => {
