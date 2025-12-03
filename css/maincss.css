@@ -571,7 +571,6 @@ body {
   transform: scale(1.05);
 }
 
-/* ✅ FIXED: background image for product detail */
 .product-detail-background {
   position: absolute;
   top: 0;
@@ -736,5 +735,6 @@ footer {
     margin-bottom: 1.5rem;
   }
 }
+
 
 
