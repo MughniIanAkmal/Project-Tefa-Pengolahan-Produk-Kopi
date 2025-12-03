@@ -115,6 +115,12 @@ body {
   background-size: auto 100%;
   z-index: -1;
 }
+.doodle-border-left {
+  left: 0;
+}
+.doodle-border-right {
+  right: 0;
+}
 .section {
   padding: 4rem 2rem;
   min-height: 100vh;
@@ -730,4 +736,5 @@ footer {
     margin-bottom: 1.5rem;
   }
 }
+
 
