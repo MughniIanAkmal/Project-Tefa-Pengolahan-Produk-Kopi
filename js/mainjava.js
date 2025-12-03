@@ -1,7 +1,7 @@
-// Add Bootstrap 5 functionality
+// load code after startup
 document.addEventListener('DOMContentLoaded', function () {
 
-  // Smooth scrolling for anchor links
+  // Smooth scrolling pojok kanan atas
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Function to update active nav link based on scroll
+  // active nav link berdasarkan scroll
   function updateActiveNavLink() {
     const sections = document.querySelectorAll('section[id]');
     let currentSection = '';
@@ -173,3 +173,4 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 });
+
