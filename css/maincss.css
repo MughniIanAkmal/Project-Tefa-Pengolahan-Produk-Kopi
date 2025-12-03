@@ -46,7 +46,7 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #ffb347;
   color: var(--primary-color);
 }
 
@@ -736,5 +736,6 @@ footer {
     margin-bottom: 1.5rem;
   }
 }
+
 
 
