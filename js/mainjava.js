@@ -36,7 +36,9 @@ document.addEventListener('DOMContentLoaded', function () {
         currentSection = section.getAttribute('id');
       }
     });
-
+      if (!currentSection) {
+    currentSection = 'top';
+      }
     document.querySelectorAll('.nav-link').forEach(link => {
       link.classList.remove('active');
       if (link.getAttribute('href') === `#${currentSection}`) {
@@ -173,4 +175,3 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 });
-
