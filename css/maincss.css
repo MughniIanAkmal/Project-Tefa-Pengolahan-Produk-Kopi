@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #ff7b00;
+  --primary-color: #FF7104;
   --secondary-color: #ffb347;
   --accent-color: #603813;
   --bg-light: #fdf6e8;
@@ -17,7 +17,7 @@ body {
 }
 
 .navbar {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgb(0, 0, 0 );
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
@@ -27,7 +27,7 @@ body {
 .navbar-brand {
   font-weight: bold;
   font-size: 1.5rem;
-  color: var(--light-color);
+  color: var(--light-color) !important;
 }
 
 .navbar-logo {
@@ -37,18 +37,18 @@ body {
 }
 
 .nav-link {
-  color: var(--light-color);
+  color: var(--light-color) !important;
   margin: 0 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: all 0.3s ease;
 }
 
-.nav-link:hover,
-.nav-link.active {
-  background-color: #ffb347;
-  color: var(--primary-color);
+.nav-link:hover, .nav-link.active {
+      background-color: rgba(255, 255, 255, 0);
+      color: var(--primary-color) !important;
 }
+
 
 .hero-section {
   padding: 4rem 2rem;
